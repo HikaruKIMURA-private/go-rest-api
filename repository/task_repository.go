@@ -8,7 +8,7 @@ import (
 	"gorm.io/gorm/clause"
 )
 
-type ITaskRepsitory interface {
+type ITaskRepository interface {
 	GetAllTasks(tasks *[]model.Task, userId uint) error
 	GetTaskById(task *model.Task, userId uint, taskId uint) error
 	CreateTask(task *model.Task) error
@@ -20,7 +20,7 @@ type taskRepository struct {
 	db *gorm.DB
 }
 
-func NewTaskRepository(db *gorm.DB) *ITaskRepsitory {
+func NewTaskRepository(db *gorm.DB) *ITaskRepository {
 	return &taskRepository{db}
 }
 
